@@ -1,12 +1,8 @@
 
 import { useEffect } from "react";
 import Header from "../components/Header";
-import Hero from "../components/Hero";
-import About from "../components/About";
-import Services from "../components/Services";
-import Blog from "../components/Blog";
-import Contact from "../components/Contact";
 import Footer from "../components/Footer";
+import { Outlet } from "react-router-dom";
 
 const Index = () => {
   useEffect(() => {
@@ -40,15 +36,11 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen flex flex-col">
       <Header />
-      <main>
-        <Hero />
-        <About />
-        <Services />
-        <Blog />
-        <Contact />
-      </main>
+      <div className="flex-grow">
+        <Outlet />
+      </div>
       <Footer />
     </div>
   );
