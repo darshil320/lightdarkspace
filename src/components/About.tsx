@@ -5,7 +5,7 @@ const About = () => {
   return (
     <section id="about" className="relative py-24 overflow-hidden">
       <div className="absolute inset-0 -z-10">
-        <div className="absolute top-1/3 right-1/4 w-72 h-72 bg-primary/5 rounded-full filter blur-3xl"></div>
+        <div className="max-w-2xl mx-auto relative"></div>
       </div>
 
       <div className="section-container">
@@ -71,8 +71,14 @@ const About = () => {
 
           <div className="order-1 lg:order-2 reveal">
             <div className="relative">
-              <div className="aspect-square w-full max-w-md mx-auto rounded-2xl overflow-hidden glass-panel p-1">
-                <div className="w-full h-full bg-muted rounded-xl"></div>
+              <div className="aspect-square w-full max-w-2xl mx-auto rounded-2xl overflow-hidden">
+                <div className="w-full h-full bg-transparent">
+                  <img
+                    src="/Website-Photo-final.png"
+                    alt="Icon"
+                    className="w-full h-auto"
+                  />
+                </div>
               </div>
               <div className="absolute -bottom-6 -right-6 w-48 h-48 bg-primary/10 rounded-full -z-10 blur-xl"></div>
             </div>

@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
@@ -13,7 +12,7 @@ const navItems: NavItem[] = [
   { label: "About", href: "/about" },
   { label: "Services", href: "/services" },
   { label: "Blog", href: "/blog" },
-  { label: "Contact", href: "/contact" }
+  { label: "Contact", href: "/contact" },
 ];
 
 const Header = () => {
@@ -33,15 +32,22 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const headerClass = scrollPosition > 50 
-    ? "py-4 backdrop-blur-md bg-background/80 shadow-soft"
-    : "py-6 bg-transparent";
+  const headerClass =
+    scrollPosition > 50
+      ? "py-4 backdrop-blur-md bg-background/80 shadow-soft"
+      : "py-6 bg-transparent";
 
   return (
-    <header className={`fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300 ${headerClass}`}>
+    <header
+      className={`fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300 ${headerClass}`}
+    >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-        <Link to="/" className="text-2xl font-bold heading-gradient animate-fade-in">
-          Arrow Ledgers
+        <Link
+          to="/"
+          className="text-2xl font-bold heading-gradient animate-fade-in flex items-center"
+        >
+          <img src="/Icon.png" alt="Icon" className="w-[150px] h-20" />
+          <span>Arrow Ledgers</span>
         </Link>
 
         {/* Desktop Navigation */}
@@ -50,7 +56,11 @@ const Header = () => {
             {navItems.map((item) => {
               const isActive = location.pathname === item.href;
               return (
-                <li key={item.label} className="animate-fade-in-down" style={{ animationDelay: "200ms" }}>
+                <li
+                  key={item.label}
+                  className="animate-fade-in-down"
+                  style={{ animationDelay: "200ms" }}
+                >
                   <Link
                     to={item.href}
                     className={`relative text-foreground/80 hover:text-foreground transition-colors duration-300 py-2 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:bg-primary after:transition-all hover:after:w-full ${
@@ -71,7 +81,7 @@ const Header = () => {
         {/* Mobile Menu Button */}
         <div className="flex md:hidden items-center space-x-4">
           <ThemeToggle />
-          <button 
+          <button
             onClick={toggleMenu}
             className="text-foreground p-2"
             aria-label="Toggle menu"
@@ -82,7 +92,7 @@ const Header = () => {
       </div>
 
       {/* Mobile Navigation */}
-      <div 
+      <div
         className={`fixed inset-0 bg-background z-40 pt-20 transition-transform duration-300 ease-in-out ${
           isMenuOpen ? "translate-x-0" : "translate-x-full"
         } md:hidden`}
