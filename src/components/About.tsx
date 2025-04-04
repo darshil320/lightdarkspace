@@ -1,5 +1,6 @@
 
-import { CircleCheck, Award, Users } from "lucide-react";
+import { CircleCheck } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const About = () => {
   return (
@@ -17,19 +18,20 @@ const About = () => {
               </span>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold mb-6 reveal">
-              A <span className="heading-gradient">Modern Approach</span> to Accounting & Advisory
+              A <span className="heading-gradient">Approach to</span> Accounting & Advisory
             </h2>
             <p className="text-foreground/80 mb-6 reveal">
-              Founded on the principles of precision, integrity, and client-focused service, our firm has been 
-              providing exceptional accounting services for over 15 years. Our team of experienced chartered 
-              accountants combines deep expertise with the latest technology to deliver unparalleled financial guidance.
+              At Arrow Ledgers, we go beyond bookkeeping—we turn numbers into strategic financial insights that drive growth and profitability. 
+              Our mission is to empower businesses with accurate, data-driven solutions, ensuring smarter decisions and long-term success. 
+              With a vision to revolutionize offshore accounting, we bring efficiency, automation, and proactive financial strategies to every business we serve.
             </p>
             
             <div className="space-y-4 mb-8">
+              <h3 className="text-xl font-semibold reveal">Why Choose Us?</h3>
               {[
-                { icon: CircleCheck, text: "Expert team of certified professionals" },
-                { icon: Award, text: "Award-winning service excellence" },
-                { icon: Users, text: "Client-centered approach to every engagement" }
+                { icon: CircleCheck, text: "Strategic Accounting – More than reports, we provide insights that fuel business growth." },
+                { icon: CircleCheck, text: "Automation & Efficiency – Leveraging technology to streamline financial workflows." },
+                { icon: CircleCheck, text: "Proactive Decision Support – Identifying risks and opportunities before they impact your business." }
               ].map((item, index) => (
                 <div key={index} className="flex items-start reveal" style={{ transitionDelay: `${index * 100}ms` }}>
                   <div className="mt-1 mr-4 p-1 rounded-full bg-primary/10 text-primary">
@@ -41,12 +43,12 @@ const About = () => {
             </div>
             
             <div className="reveal">
-              <a 
-                href="#services" 
+              <Link 
+                to="/services" 
                 className="px-8 py-3 font-medium rounded-lg bg-primary text-primary-foreground hover:opacity-90 inline-block button-hover"
               >
-                Our Services
-              </a>
+                Let's give your books the right direction!
+              </Link>
             </div>
           </div>
           
@@ -62,16 +64,16 @@ const About = () => {
         
         <div className="mt-24 grid grid-cols-1 md:grid-cols-3 gap-8">
           {[
-            { number: "15+", label: "Years of experience" },
-            { number: "500+", label: "Satisfied clients" },
-            { number: "98%", label: "Client retention rate" }
+            { number: "Unlimited", label: "Scalable financial solutions tailored to your business needs" },
+            { number: "100%", label: "Commitment to data security and client satisfaction" },
+            { number: "Zero Hassle", label: "No communication gaps, just seamless financial management" }
           ].map((stat, index) => (
             <div 
               key={index} 
               className="text-center p-8 rounded-xl glass-panel reveal"
               style={{ transitionDelay: `${index * 100}ms` }}
             >
-              <div className="text-4xl md:text-5xl font-bold mb-2">{stat.number}</div>
+              <div className="text-2xl md:text-3xl font-bold mb-2">✅ {stat.number}</div>
               <div className="text-foreground/70">{stat.label}</div>
             </div>
           ))}

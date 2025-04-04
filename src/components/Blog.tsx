@@ -1,5 +1,6 @@
 
 import { Calendar, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const BlogPost = ({ 
   title, 
@@ -27,13 +28,13 @@ const BlogPost = ({
         </div>
         <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">{title}</h3>
         <p className="text-foreground/70 mb-4">{excerpt}</p>
-        <a 
-          href="#" 
+        <Link
+          to="/blog" 
           className="inline-flex items-center text-primary font-medium group-hover:underline"
         >
           Read more
           <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
-        </a>
+        </Link>
       </div>
     </div>
   );
@@ -44,19 +45,19 @@ const Blog = () => {
     {
       title: "Tax Planning Strategies for Small Businesses",
       excerpt: "Effective tax planning strategies that can help small businesses optimize their tax positions and improve cash flow.",
-      date: "May 15, 2023",
+      date: "April 15, 2023",
       category: "Tax Planning"
     },
     {
       title: "Understanding Financial Statements: A Guide for Business Owners",
       excerpt: "A comprehensive guide to help business owners understand and interpret their financial statements for better decision-making.",
-      date: "April 22, 2023",
+      date: "March 22, 2023",
       category: "Financial Literacy"
     },
     {
       title: "The Impact of Recent Regulatory Changes on Corporate Reporting",
       excerpt: "An analysis of recent regulatory changes and their implications for corporate financial reporting requirements.",
-      date: "March 10, 2023",
+      date: "February 10, 2023",
       category: "Regulatory Updates"
     }
   ];
@@ -96,13 +97,13 @@ const Blog = () => {
         </div>
         
         <div className="text-center mt-12 reveal">
-          <a 
-            href="#" 
+          <Link
+            to="/blog" 
             className="px-8 py-3 font-medium rounded-lg border border-border glass-panel inline-flex items-center button-hover"
           >
             View All Articles
             <ArrowRight size={16} className="ml-2" />
-          </a>
+          </Link>
         </div>
       </div>
     </section>

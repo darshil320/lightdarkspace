@@ -46,7 +46,7 @@ const Contact = () => {
     {
       icon: Mail,
       title: "Email",
-      details: ["info@cafirm.com", "support@cafirm.com"]
+      details: ["info@arrowledgers.com", "support@arrowledgers.com"]
     }
   ];
 

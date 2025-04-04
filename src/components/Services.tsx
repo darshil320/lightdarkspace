@@ -1,5 +1,26 @@
 
-import { Calculator, FileText, TrendingUp, BarChart4, FileSearch, Briefcase } from "lucide-react";
+import { BookOpen, BarChart4, LineChart, Lightbulb, Settings, ClipboardCheck } from "lucide-react";
+
+const ServiceCategory = ({ title, description, items }: { 
+  title: string;
+  description: string;
+  items: string[];
+}) => {
+  return (
+    <div className="p-8 rounded-2xl glass-panel group hover:bg-primary/[0.03] transition-all duration-300 reveal">
+      <h3 className="text-xl font-semibold mb-3">{title}</h3>
+      <p className="text-foreground/70 mb-5">{description}</p>
+      <ul className="space-y-2">
+        {items.map((item, idx) => (
+          <li key={idx} className="flex items-start">
+            <span className="mr-2 text-primary">-</span>
+            <span className="text-foreground/80">{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
 
 const ServiceCard = ({ icon: Icon, title, description }: { 
   icon: any;
@@ -18,36 +39,103 @@ const ServiceCard = ({ icon: Icon, title, description }: {
 };
 
 const Services = () => {
-  const services = [
+  const serviceCategories = [
     {
-      icon: Calculator,
-      title: "Tax Planning & Preparation",
-      description: "Strategic tax planning and meticulous preparation services for individuals and businesses to optimize tax positions."
+      title: "Managing Comprehensive Financials",
+      description: "Seamless bookkeeping, AR/AP management, payroll processing, and multi-currency accounting to ensure financial clarity.",
+      items: [
+        "Bookkeeping & financial reporting",
+        "Clean up and organize messy books",
+        "Payroll processing",
+        "Multi-currency accounting",
+        "Consolidation of FS & cleanup service"
+      ]
     },
     {
-      icon: FileText,
-      title: "Financial Statements",
-      description: "Comprehensive preparation and analysis of financial statements to provide clear insights into your financial position."
+      title: "Ongoing Financial Analysis & Insights",
+      description: "In-depth analysis, profitability evaluation, and break-even calculations to drive data-backed decisions.",
+      items: [
+        "Ratio analysis",
+        "Custom KPI tracking systems",
+        "AR/AP management",
+        "In-depth financial performance analysis",
+        "Break-even calculations & pricing strategy support"
+      ]
     },
     {
-      icon: TrendingUp,
-      title: "Business Advisory",
-      description: "Strategic advisory services to help businesses grow, improve operations, and achieve long-term financial goals."
+      title: "Decision-Making Enhancement",
+      description: "Custom KPI tracking, financial dashboards, and actionable management reports for optimized performance.",
+      items: [
+        "Profitability analysis",
+        "Interactive financial dashboards",
+        "Creation & integration of SOPs",
+        "Actionable management reports"
+      ]
+    },
+    {
+      title: "Expert Management Advisory",
+      description: "Cost-saving strategies, capital restructuring, budgeting, and cash flow management for financial stability.",
+      items: [
+        "Practical cost-saving recommendations",
+        "Capital restructuring",
+        "Budgets & forecasting",
+        "Projection & monitoring",
+        "Cash flow management",
+        "Working capital"
+      ]
+    },
+    {
+      title: "New-Age Operation Optimization",
+      description: "Leverage advanced accounting software, workflow automation, and data-driven insights for streamlined operations.",
+      items: [
+        "Leveraging advanced features of accounting software",
+        "Financial workflow assessment",
+        "Trend analysis & data detection",
+        "Workflow automation"
+      ]
+    },
+    {
+      title: "Regulatory Compliance",
+      description: "Tax planning, sales tax registration, audit support, and regulatory updates to meet compliance standards.",
+      items: [
+        "Tax planning & advisory",
+        "Sales tax registration & filing",
+        "Audit support",
+        "Recent updates & guidance"
+      ]
+    }
+  ];
+
+  const servicesHighlights = [
+    {
+      icon: BookOpen,
+      title: "Managing Comprehensive Financials",
+      description: "📊 Accurate bookkeeping & financial reporting to ensure financial clarity and organization."
     },
     {
       icon: BarChart4,
-      title: "Financial Planning",
-      description: "Personalized financial planning services to help individuals and families achieve their financial objectives."
+      title: "Ongoing Financial Analysis & Insights",
+      description: "📈 Strategic financial insights to drive informed business decisions."
     },
     {
-      icon: FileSearch,
-      title: "Audit & Assurance",
-      description: "Thorough audit and assurance services to enhance credibility and transparency of financial information."
+      icon: LineChart,
+      title: "Decision-Making Enhancement",
+      description: "📌 Custom KPI tracking and actionable reports for optimized performance."
     },
     {
-      icon: Briefcase,
-      title: "Corporate Services",
-      description: "Comprehensive corporate services including incorporation, secretarial services, and regulatory compliance."
+      icon: Lightbulb,
+      title: "Expert Management Advisory",
+      description: "💡 Proactive financial planning for long-term business stability and growth."
+    },
+    {
+      icon: Settings,
+      title: "New-Age Operation Optimization",
+      description: "⚙️ Advanced workflow automation and process efficiency for modern businesses."
+    },
+    {
+      icon: ClipboardCheck,
+      title: "Regulatory Compliance",
+      description: "✅ Comprehensive tax planning and regulatory compliance services."
     }
   ];
 
@@ -65,7 +153,7 @@ const Services = () => {
             </span>
           </div>
           <h2 className="text-3xl md:text-4xl font-bold mb-6 reveal">
-            Comprehensive <span className="heading-gradient">Accounting Solutions</span>
+            Comprehensive <span className="heading-gradient">Solutions</span>
           </h2>
           <p className="text-foreground/80 reveal">
             We offer a wide range of accounting and financial advisory services tailored to meet the unique needs of our clients,
@@ -73,13 +161,27 @@ const Services = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => (
+        {/* Services Highlights */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+          {servicesHighlights.map((service, index) => (
             <ServiceCard 
               key={index} 
               icon={service.icon} 
               title={service.title} 
               description={service.description} 
+            />
+          ))}
+        </div>
+
+        {/* Detailed Services */}
+        <h2 className="text-2xl md:text-3xl font-bold mb-10 text-center reveal">Detailed Services Breakdown</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {serviceCategories.map((category, index) => (
+            <ServiceCategory 
+              key={index} 
+              title={category.title} 
+              description={category.description} 
+              items={category.items} 
             />
           ))}
         </div>

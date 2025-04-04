@@ -1,5 +1,6 @@
 
 import { ArrowUp, Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -24,9 +25,9 @@ const Footer = () => {
       <div className="section-container">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
           <div className="md:col-span-2">
-            <a href="#" className="text-2xl font-bold heading-gradient inline-block mb-4">
-              CA Firm
-            </a>
+            <Link to="/" className="text-2xl font-bold heading-gradient inline-block mb-4">
+              Arrow Ledgers
+            </Link>
             <p className="text-foreground/70 max-w-md mb-6">
               Providing exceptional accounting and financial advisory services with precision,
               integrity, and a commitment to excellence.
@@ -65,12 +66,12 @@ const Footer = () => {
               <ul className="space-y-3">
                 {column.links.map((link, linkIndex) => (
                   <li key={linkIndex}>
-                    <a 
-                      href="#" 
+                    <Link
+                      to={column.title === "Services" ? "/services" : "/about"}
                       className="text-foreground/70 hover:text-primary transition-colors"
                     >
                       {link}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -81,17 +82,17 @@ const Footer = () => {
         <div className="pt-8 border-t border-border/40">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-foreground/60 text-sm mb-4 md:mb-0">
-              © {new Date().getFullYear()} CA Firm. All rights reserved.
+              © {new Date().getFullYear()} Arrow Ledgers. All rights reserved.
             </p>
             <div className="flex space-x-6">
               {["Privacy Policy", "Terms of Service", "Cookie Policy"].map((item, index) => (
-                <a 
+                <Link
                   key={index} 
-                  href="#" 
+                  to="#" 
                   className="text-sm text-foreground/60 hover:text-primary transition-colors"
                 >
                   {item}
-                </a>
+                </Link>
               ))}
             </div>
           </div>
