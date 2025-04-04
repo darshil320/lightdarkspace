@@ -44,9 +44,13 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         <Link
           to="/"
-          className="text-2xl font-bold heading-gradient animate-fade-in flex items-center"
+          className="text-2xl font-bold heading-gradient animate-fade-in flex items-center gap-4"
         >
-          <img src="/Icon.png" alt="Icon" className="w-[150px] h-20" />
+          <img
+            src="/Icon-square.png"
+            alt="Icon"
+            className="w-[60px] h-[50px]"
+          />
           <span>Arrow Ledgers</span>
         </Link>
 

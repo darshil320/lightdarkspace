@@ -73,11 +73,16 @@ const About = () => {
             <div className="relative">
               <div className="aspect-square w-full max-w-2xl mx-auto rounded-2xl overflow-hidden">
                 <div className="w-full h-full bg-transparent">
-                  <img
-                    src="/Website-Photo-final.png"
-                    alt="Icon"
-                    className="w-full h-auto"
-                  />
+                  <a
+                    href="www.linkedin.com/in/caketkibookkeeping7749"
+                    className=" flex items-center justify-center text-foreground/80"
+                  >
+                    <img
+                      src="/Website-Photo-final.png"
+                      alt="Icon"
+                      className="w-full h-auto"
+                    />
+                  </a>
                 </div>
               </div>
               <div className="absolute -bottom-6 -right-6 w-48 h-48 bg-primary/10 rounded-full -z-10 blur-xl"></div>
